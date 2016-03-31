@@ -90,6 +90,26 @@ class param{
 			setcookie($var, sys_auth($value, 'ENCODE'), $time, C('system','cookie_path'), C('system','cookie_domain'), $s);
 		}
 	}
+	
+	
+	/**
+	 * 获取通过set_cookie设置的cookie变量
+	 * @param string $var 变量名
+	 * @param string $default 默认值
+	 * @return mixed 成功则返回cookie值，否则返回false
+	 */
+	public static function get_cookie($var, $default=''){
+	  $var = mp_base::load_config('system', 'cookie_pre') . $var;
+	  $value = isset($_COOKIE[$var]) ? sys_auth($_COOKIE[$var], 'DECODE') : $default;
+	  if (in_array($var, array('_userid', 'userid', 'siteid', '_groupid', '_roleid'))) {
+	  	$value = intval($value);
+	  }elseif (in_array($var, array('_username', 'username', '_nickname', 'admin_username', 'sys_lang'))){
+	    $value = safe_replace($value);
+	  }
+	  
+	  return $value;
+	}
+	
 
 
 	/**

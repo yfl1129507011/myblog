@@ -7,17 +7,20 @@ define('IN_ADMIN', true);
 
 class admin{
     public function __construct(){
-        
+        $this->check_admin();
     }
     
     /**
      * 判断用户是否已经登录
      */
     final public function check_admin(){
-        if (ROUTE_M == 'admin' && ROUTE_C == 'index' && in_array(ROUTE_A, array('login', 'public_card'))) {
+        if (ROUTE_M == 'admin' && ROUTE_C == 'index' && in_array(ROUTE_A, array('login', 'code'))) {
         	return true;
         }else {
             $userid = param::get_cookie('userid');
+            if (!isset($_SESSION['userid']) || !$_SESSION['userid'] || $userid != $_SESSION['userid']) {
+            	header('location:?m=admin&c=index&a=login');
+            }
         }
     }
     

@@ -12,18 +12,8 @@
 	<project_entity ID="project_roots">
 		<vfile name="D:\WWW\myBlogs"/>
 	</project_entity>
-	<project_entity ID="javaBridge" JRE_Name="1.5.0_06"/>
 	<project_entity ID="bookmarks"/>
-	<project_entity ID="editor_component" selectedEditor="5">
-		<openEditors>
-			<editor fileName="D:\WWW\myBlogs\mypc\modules\admin\index.php" caretPosition="141" clone="false" encoding="UTF-8"/>
-			<editor fileName="D:\WWW\myBlogs\mypc\modules\admin\classes\admin.class.php" caretPosition="92" clone="false" encoding="UTF-8"/>
-			<editor fileName="D:\WWW\myBlogs\mypc\libs\classes\checkcode.class.php" caretPosition="223" clone="false" encoding="UTF-8"/>
-			<editor fileName="D:\WWW\myBlogs\mypc\libs\classes\session_mysql.class.php" caretPosition="205" clone="false" encoding="UTF-8"/>
-			<editor fileName="D:\WWW\myBlogs\mypc\base.php" caretPosition="114" clone="false" encoding="UTF-8"/>
-			<editor fileName="D:\WWW\myBlogs\mypc\model\session_model.class.php" caretPosition="326" clone="false" encoding="UTF-8"/>
-		</openEditors>
-	</project_entity>
+	<project_entity ID="javaBridge" JRE_Name="1.5.0_06"/>
 	<project_entity ID="Subversion">
 		<svnCmdArguments>
 			<SubversionCommand commandType="update"/>
@@ -35,6 +25,13 @@
 			<SubversionCommand commandType="revert"/>
 			<SubversionCommand commandType="resolve"/>
 		</svnCmdArguments>
+	</project_entity>
+	<project_entity ID="editor_component" selectedEditor="1">
+		<openEditors>
+			<editor fileName="D:\WWW\myBlogs\mypc\modules\admin\index.php" caretPosition="200" clone="false" encoding="UTF-8"/>
+			<editor fileName="D:\WWW\myBlogs\mypc\modules\admin\classes\admin.class.php" caretPosition="471" clone="false" encoding="UTF-8"/>
+			<editor fileName="D:\WWW\myBlogs\mypc\libs\functions\global.func.php" caretPosition="547" clone="false" encoding="UTF-8"/>
+		</openEditors>
 	</project_entity>
 	<project_entity ID="CVS">
 		<lastArguments>

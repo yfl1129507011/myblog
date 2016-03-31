@@ -15,13 +15,15 @@ class index extends admin{
 
   public function init(){
     $userid = $_SESSION['userid'];
-    $admin_username = param::get_cookie('admin_username');
+    $admin_username = 'admin';//param::get_cookie('admin_username');
+    include $this->admin_tpl('index');
   }
   
   /**
    * 后台登录
    */
   public function login(){
+      if($_SESSION['userid']) header('location:?m=admin&c=index');
       if (isset($_GET['dosubmit'])) {
         $err_msg = '';
         if (strtolower($_POST['vcode']) == strtolower($_SESSION['vcode'])) {
@@ -95,6 +97,28 @@ class index extends admin{
           exit();
       }
   }
+  
+  
+  /**
+   * 后台公共主页
+   */
+  public function main(){
+    include $this->admin_tpl('main');
+  }
+  
+  
+  /**
+   * 退出
+   */
+  public function logout(){
+    $_SESSION['userid'] = 0;
+		$_SESSION['roleid'] = 0;
+		param::set_cookie('admin_username','');
+		param::set_cookie('userid',0);
+		header('location:?m=admin&c=index&a=login');
+  }
+  
 }
+
 
  ?>

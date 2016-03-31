@@ -41,7 +41,7 @@
 
 				<div class="field">
 					<b>验证码</b>
-					<input class="verify" type="text" name="vcode" placeholder="输入验证码" />
+					<input class="verify" type="text" name="vcode" placeholder="输入验证码" maxlength="4" />
 					<img src="index.php?m=admin&c=index&a=code" class="passcode" onClick="this.src='index.php?m=admin&c=index&a=code&'+Math.random()" title="点击刷新" />
 				</div><div id="verify"></div>
 			</div>
