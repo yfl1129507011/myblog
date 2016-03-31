@@ -41,3 +41,22 @@ CREATE TABLE `mb_session`(
 	PRIMARY KEY (`sessionid`),
 	KEY `lastvisit` (`lastvisit`)
 )ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT 'session信息存储表';
+
+
+#后台模块菜单表
+CREATE TABLE `mb_menu`(
+	`id` smallint(6) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`cname` char(40) NOT NULL DEFAULT '' COMMENT '中文名称',
+	`ename` char(50) NOT NULL DEFAULT '' COMMENT '英文名称',
+	`pid` smallint(6) UNSIGNED NOT NULL DEFAULT '0' COMMENT '父id',
+	`m` char(20) NOT NULL DEFAULT '' COMMENT '模块标识',
+	`c` char(20) NOT NULL DEFAULT '' COMMENT '控制器标识',
+	`a` char(20) NOT NULL DEFAULT '' COMMENT '方法标识',
+	`data` char(100) NOT NULL DEFAULT '' COMMENT '其他数据标识',
+	`listorder` smallint(6) UNSIGNED NOT NULL DEFAULT '0' COMMENT '排序',
+	`display` enum('1','0') NOT NULL DEFAULT '1' COMMENT '是否显示',
+	PRIMARY KEY (`id`),
+	KEY `listorder` (`listorder`),
+	KEY `pid` (`pid`),
+	KEY `module` (`m`,`c`,`a`)
+)ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '后台模块菜单表'
