@@ -11,7 +11,7 @@ class session_mysql{
   function __construct()
   {
     $this->db = mp_base::load_model('session_model');
-    $this->lifetiem = C('system', 'session_ttl');
+    $this->lifetime = C('system', 'session_ttl');
     session_set_save_handler(array(&$this, 'open'), array(&$this, 'close'), array(&$this, 'read'), array(&$this, 'write'), array(&$this, 'destroy'), array(&$this, 'gc'));
     session_start();
   }

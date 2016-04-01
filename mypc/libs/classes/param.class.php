@@ -77,7 +77,7 @@ class param{
 	* @param string $value 变量值
 	* @param int $time     过期时间
 	*/
-	public static function set_cookie($var, $value='', $time=0){return 'yfl';
+	public static function set_cookie($var, $value='', $time=0){
 		$time = $time>0 ? $time : ($value==='' ? SYS_TIME-3600 : 0);  //处理过期时间
 		$s = $_SERVER['SERVER_PORT']=='443' ? 1 : 0;
 		$var = C('system', 'cookie_pre').$var;
@@ -90,8 +90,8 @@ class param{
 			setcookie($var, sys_auth($value, 'ENCODE'), $time, C('system','cookie_path'), C('system','cookie_domain'), $s);
 		}
 	}
-	
-	
+
+
 	/**
 	 * 获取通过set_cookie设置的cookie变量
 	 * @param string $var 变量名
@@ -106,10 +106,10 @@ class param{
 	  }elseif (in_array($var, array('_username', 'username', '_nickname', 'admin_username', 'sys_lang'))){
 	    $value = safe_replace($value);
 	  }
-	  
+
 	  return $value;
 	}
-	
+
 
 
 	/**

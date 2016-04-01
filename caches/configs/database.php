@@ -5,7 +5,8 @@ return array(
     'port' => 3306,  //端口号
     'database' => 'myBlogs',  //要操作的数据库库名
     'username' => 'root',  //用户名
-    'password' => 'yfl1129507011',  //密码
+    //'password' => 'yfl1129507011',  //密码
+    'password' => '',  //密码
     'tablepre' => 'mb_',  //表后缀
     'charset' => 'utf8',  //字符编码
     'type' => 'mysqli',  //数据库服务器类型

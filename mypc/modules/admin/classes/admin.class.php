@@ -9,12 +9,12 @@ class admin{
     public function __construct(){
         $this->check_admin();
     }
-    
+
     /**
      * 判断用户是否已经登录
      */
     final public function check_admin(){
-        if (ROUTE_M == 'admin' && ROUTE_C == 'index' && in_array(ROUTE_A, array('login', 'code'))) {
+        if (ROUTE_M == 'admin' && ROUTE_C == 'index' && in_array(ROUTE_A, array('login', 'code', 'checkCode'))) {
         	return true;
         }else {
             $userid = param::get_cookie('userid');
@@ -23,8 +23,8 @@ class admin{
             }
         }
     }
-    
-    
+
+
     /**
      * 加载后台模板
      * @param string $file 文件名
@@ -35,7 +35,7 @@ class admin{
         if (empty($m)) {
         	return false;
         }
-        
+
         return MP_PATH.'modules'.DIRECTORY_SEPARATOR.$m.DIRECTORY_SEPARATOR.'tpls'.DIRECTORY_SEPARATOR.$file.'.tpl.php';
     }
 }

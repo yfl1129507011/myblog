@@ -72,5 +72,5 @@ include $this->admin_tpl('head');
 	</table>
 </div>
 <?php
-$this->admin_tpl('foot');
+include $this->admin_tpl('foot');
 ?>

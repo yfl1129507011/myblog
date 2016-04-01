@@ -59,4 +59,4 @@ CREATE TABLE `mb_menu`(
 	KEY `listorder` (`listorder`),
 	KEY `pid` (`pid`),
 	KEY `module` (`m`,`c`,`a`)
-)ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '后台模块菜单表'
+)ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '后台模块菜单表';

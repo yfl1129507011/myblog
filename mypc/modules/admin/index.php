@@ -18,14 +18,13 @@ class index extends admin{
     $admin_username = 'admin';//param::get_cookie('admin_username');
     include $this->admin_tpl('index');
   }
-  
+
   /**
    * 后台登录
    */
   public function login(){
-      if($_SESSION['userid']) header('location:?m=admin&c=index');
+      $err_msg = '';
       if (isset($_GET['dosubmit'])) {
-        $err_msg = '';
         if (strtolower($_POST['vcode']) == strtolower($_SESSION['vcode'])) {
         	$username = trim($_POST['username']);
         	//密码错误剩余重试次数
@@ -62,7 +61,7 @@ class index extends admin{
         	}
         	//登录成功
         	$this->times_db->delete(array('username'=>$username,'isadmin'=>1));
-        	
+
         	$this->db->update(array('lastloginip'=>ip(), 'lastlogintime'=>SYS_TIME), array('userid'=>$r['userid']));
         	$_SESSION['userid'] = $r['userid'];
         	$cookie_time = SYS_TIME+86400*30; //30天时间
@@ -76,15 +75,15 @@ class index extends admin{
       LOGIN:
       include $this->admin_tpl('login');
   }
-  
-  
+
+
   /**
    * 验证码
    */
   public function code(){
       mp_base::load_sys_class('checkcode', '', 0);
   }
-  
+
   /**
    * Ajax异步验证验证码
    */
@@ -97,16 +96,16 @@ class index extends admin{
           exit();
       }
   }
-  
-  
+
+
   /**
    * 后台公共主页
    */
   public function main(){
     include $this->admin_tpl('main');
   }
-  
-  
+
+
   /**
    * 退出
    */
@@ -117,7 +116,7 @@ class index extends admin{
 		param::set_cookie('userid',0);
 		header('location:?m=admin&c=index&a=login');
   }
-  
+
 }
 
 
