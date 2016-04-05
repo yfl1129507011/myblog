@@ -60,3 +60,16 @@ CREATE TABLE `mb_menu`(
 	KEY `pid` (`pid`),
 	KEY `module` (`m`,`c`,`a`)
 )ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '后台模块菜单表';
+
+
+#后台管理员角色表
+CREATE TABLE `mb_admin_role`(
+	`roleid` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`rolename` varchar(50) NOT NULL COMMENT '角色名称',
+	`description` text NOT NULL COMMENT '角色说明',
+	`listorder` smallint UNSIGNED NOT NULL DEFAULT '0' COMMENT '排序',
+	`disabled` tinyint(1) UNSIGNED NOT NULL DEFAULT '' COMMENT '是否有效',
+	PRIMARY KEY (`roleid`),
+	KEY `listorder` (`listorder`),
+	KEY `disabled` (`disabled`)
+)ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT '后台管理员角色表';
