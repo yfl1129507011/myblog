@@ -34,37 +34,33 @@ defined('IN_ADMIN') or exit('No permission resources.');
                     <a target="main" id="start" href="?m=admin&c=index&a=main" style="background-color:#09C;color:white;" onclick="clickMenu(this.id)"> 开始</a>
                     <ul id="start_list" class="menu_list" >
                         <li><a target="main" href="javascript:void(0);">系统设置</a></li>
-                        <li><a target="main" href="javascript:void(0);">文章管理</a></li>
-                        <li><a target="main" href="javascript:void(0);">站点管理</a></li>
-                        <li><a target="main" href="javascript:void(0);">模块管理</a></li>
-                        <li><a target="main" href="javascript:void(0);">管理员管理</a></li>
                         <li><a target="main" href="javascript:void(0);">修改个人信息</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a target="main" id="goods" href="javascript:void(0);"  onclick="clickMenu(this.id)"> 商品管理</a>
+                    <a target="main" id="goods" href="javascript:void(0);"  onclick="clickMenu(this.id)"> 文章管理</a>
                     <ul id="goods_list" class="menu_list" style="display:none">
-                        <li><a target="main" href="javascript:void(0);">商品列表</a></li>
-                        <li><a target="main" href="javascript:void(0);">添加商品</a></li>
-                        <li><a target="main" href="javascript:void(0);">商品类型</a></li>
+                        <li><a target="main" href="javascript:void(0);">文章列表</a></li>
+                        <li><a target="main" href="javascript:void(0);">添加文章</a></li>
+                        <li><a target="main" href="javascript:void(0);">文章类型</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a target="main" id="account" href="javascript:void(0);"  onclick="clickMenu(this.id)"> 订单管理</a>
+                    <a target="main" id="account" href="?m=admin&c=menu"  onclick="clickMenu(this.id)"> 菜单管理</a>
                     <ul id="account_list" class="menu_list" style="display:none">
-                        <li><a target="main" href="javascript:void(0);">订单列表</a></li>
+                        <li><a target="main" href="?m=admin&c=menu">菜单列表</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a target="main" id="user" href="javascript:void(0);"  onclick="clickMenu(this.id)"> 用户管理</a>
+                    <a target="main" id="user" href="javascript:void(0);"  onclick="clickMenu(this.id)"> 管理员管理</a>
                     <ul id="user_list" class="menu_list" style="display:none">
-                        <li><a target="main" href="javascript:void(0);">用户列表</a></li>
+                        <li><a target="main" href="javascript:void(0);">管理员列表</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a target="main" id="member" href="javascript:void(0);"  onclick="clickMenu(this.id)"> 会员管理</a>
+                    <a target="main" id="member" href="javascript:void(0);"  onclick="clickMenu(this.id)"> 角色管理</a>
                     <ul id="member_list" class="menu_list" style="display:none">
-                        <li><a target="main" href="javascript:void(0);">会员列表</a></li>
+                        <li><a target="main" href="javascript:void(0);">角色列表</a></li>
                     </ul>
                 </li>
                 <li>

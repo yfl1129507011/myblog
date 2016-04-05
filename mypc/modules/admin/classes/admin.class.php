@@ -14,10 +14,13 @@ class admin{
      * 判断用户是否已经登录
      */
     final public function check_admin(){
+        $userid = param::get_cookie('userid');
         if (ROUTE_M == 'admin' && ROUTE_C == 'index' && in_array(ROUTE_A, array('login', 'code', 'checkCode'))) {
+          if (ROUTE_A == 'login' && !empty($_SESSION['userid']) && $userid == $_SESSION['userid']) {
+            header('location:?m=admin&index');
+          }
         	return true;
         }else {
-            $userid = param::get_cookie('userid');
             if (!isset($_SESSION['userid']) || !$_SESSION['userid'] || $userid != $_SESSION['userid']) {
             	header('location:?m=admin&c=index&a=login');
             }

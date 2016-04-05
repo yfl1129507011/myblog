@@ -15,7 +15,7 @@ return array(
 	'session_savepath' => CACHE_PATH . 'sessions/',  //用文件来存储session信息时，文件位置
 	//资源路径配置
 	'js_path' => 'http://www.myblogs.com/statics/js/', //CDN JS
-    'css_path' => 'http://www.myblogs.com/statics/css/', //CDN CSS
-    'img_path' => 'http://www.myblogs.com/statics/img/', //CDN img
-    'app_path' => 'http://www.myblogs.com/',//动态域名配置地址
+  'css_path' => 'http://www.myblogs.com/statics/css/', //CDN CSS
+  'img_path' => 'http://www.myblogs.com/statics/img/', //CDN img
+  'app_path' => 'http://www.myblogs.com/',//动态域名配置地址
 );
