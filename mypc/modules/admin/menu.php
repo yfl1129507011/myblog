@@ -13,5 +13,20 @@ class menu extends admin{
   public function init(){
     include $this->admin_tpl('menu');
   }
+
+  //添加菜单
+  public function add(){
+    include $this->admin_tpl('menu');
+  }
+
+  //编辑菜单
+  public function edit(){
+    include $this->admin_tpl('menu');
+  }
+
+  //删除菜单
+  public function delete(){
+    
+  }
 }
  ?>
