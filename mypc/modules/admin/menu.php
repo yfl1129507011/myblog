@@ -16,7 +16,11 @@ class menu extends admin{
 
   //添加菜单
   public function add(){
-    include $this->admin_tpl('menu');
+    if (isset($_POST['dosubmit'])) {
+      $this->db->insert($_POST['info']);
+    }else{
+      include $this->admin_tpl('menu');
+    }
   }
 
   //编辑菜单
@@ -26,7 +30,7 @@ class menu extends admin{
 
   //删除菜单
   public function delete(){
-    
+
   }
 }
  ?>
