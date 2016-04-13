@@ -10,23 +10,14 @@ class tree {
   public $arr = array();
 
   //生成树型结构所需修饰符号，可以换成图片
-  public $icon = array('│','├','└');
-  public $nbsp = "&nbsp";
+  public $icon = '--';
+  public $nbsp = "&nbsp;&nbsp;";
 
   public $ret = '';
 
   /**
 	* 构造函数，初始化类
 	* @param array 2维数组，例如：
-	* array(
-	*      1 => array('id'=>'1','parentid'=>0,'name'=>'一级栏目一'),
-	*      2 => array('id'=>'2','parentid'=>0,'name'=>'一级栏目二'),
-	*      3 => array('id'=>'3','parentid'=>1,'name'=>'二级栏目一'),
-	*      4 => array('id'=>'4','parentid'=>1,'name'=>'二级栏目二'),
-	*      5 => array('id'=>'5','parentid'=>2,'name'=>'二级栏目三'),
-	*      6 => array('id'=>'6','parentid'=>3,'name'=>'三级栏目一'),
-	*      7 => array('id'=>'7','parentid'=>3,'name'=>'三级栏目二')
-	*      )
 	*/
   public function init($arr = array()){
     $this->arr = $arr;
@@ -54,6 +45,69 @@ class tree {
     }
 
     return $newarr;
+  }
+
+
+  /**
+	* 递归方式得到树型结构
+	* @param int ID，表示获得这个ID下的所有子级
+  * @param int level 等级标识
+	* @param string 中文名称的数据库字段名称
+	* @param string id标识的数据库字段名称
+	* @return string
+	*/
+	public function get_tree_by_recur($myid=0, $level=0, $cname='cname', $id='id'){
+    $result = array();
+
+    foreach ($this->arr as $key => $value) {
+      if($value['pid'] == $myid){
+        $value['level_id'] = $level;
+        $value[$cname] = str_repeat($this->nbsp, $level) . $this->icon . $value[$cname];
+        $result[] = $value;
+
+        $result = array_merge($result, $this->get_tree_by_recur($value[$id], $level+1, $cname, $id));
+      }
+    }
+
+    return $result;
+  }
+
+
+
+  /**
+	* 堆栈方式得到树型结构
+	* @param int ID，表示获得这个ID下的所有子级
+  * @param int level 等级标识
+	* @param string 中文名称的数据库字段名称
+	* @param string id标识的数据库字段名称
+	* @return string
+	*/
+	public function get_tree_by_stack($myid=0, $level=0, $cname='cname', $id='id'){
+    $stack = array();   //栈存储空间
+    $result = array();
+
+    foreach ($this->arr as $key => $value) {
+      if($myid == $value['pid']){
+        $value['level_id'] = $level;
+        array_push($stack, $value);  //进栈
+        unset($this->arr[$key]);
+      }
+    }
+
+    while (0 < count($stack)) {
+      $node = array_pop($stack);  //出栈
+      foreach($this->arr as $key => $value){
+        if ($node[$id] == $value['pid']) {
+          $value['level_id'] = $node['level_id']+1;
+          $value[$cname] = str_repeat($this->nbsp, $value['level_id']) . $this->icon . $value[$cname];
+          array_push($stack, $value);  //进栈
+          unset($this->arr[$key]);
+        }
+      }
+      $result[] = $node;
+    }
+
+    return $result;
   }
 
 
